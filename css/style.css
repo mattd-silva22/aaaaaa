@@ -308,4 +308,34 @@ footer nav .list-links ul li a {
   font-weight: 400;
 }
 
+#nav-resp.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#nav-resp.active ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-weight: 400;
+  list-style: none;
+  height: 100vh;
+}
+#nav-resp.active ul li a {
+  font-size: 3rem;
+}
+#nav-resp.active ul li a:hover {
+  filter: brightness(0.5);
+}
+#nav-resp.active ul li a.link-btn {
+  color: #2F70FE;
+}
+
+#nav-resp {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */
