@@ -37,6 +37,16 @@ header {
                     a {
                         color: $link-blue;
                     }
+
+                    &:hover {
+                        background: $link-blue;
+                        filter: none;
+                        a {
+                            color: #fff;
+                            filter: none;
+                        }
+                        
+                    }
                 }
             }
         }
@@ -57,9 +67,24 @@ header {
                 height: 5px;
                 background-color: #333;
                 margin: 6px 0;
+                transition: 0.4s;
             }
-        }
+     }
 
+     .active {
+            .ham-btn-bar:nth-child(1) {
+               -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+               transform: rotate(-45deg) translate(-9px, 6px);
+           }
+         
+          .ham-btn-bar:nth-child(2) {opacity: 0;}
+         
+          .ham-btn-bar:nth-child(3) {
+           -webkit-transform: rotate(45deg) translate(-8px, -8px);
+           transform: rotate(45deg) translate(-8px, -8px);
+         }
+       
+     }
         @media(max-width: 920px) {
             #ham-btn {
             display: inline;

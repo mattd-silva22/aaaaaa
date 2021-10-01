@@ -26,6 +26,7 @@
 
         @media(max-width: 1080px) {
             flex-direction: column-reverse;
+            gap: 6rem;
         }
 
         gap: 10rem;
@@ -35,6 +36,7 @@
 
             @media(max-width: 1080px) {
                 flex-direction: column-reverse;
+                gap: 6rem
             }
         }
         .text-area-bannet-t {

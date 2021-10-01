@@ -23,6 +23,10 @@
             justify-content: center;
             flex-wrap: wrap;
 
+            @media(max-width: 920px) {
+                gap: 8rem;
+             }
+
            
             
         }
