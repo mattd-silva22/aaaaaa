@@ -1,18 +1,23 @@
 
-// const formId;
-// const formEl;
+
+
+
+
+
 const nameInput = document.querySelector("#nameInput");
 const orderInput = document.querySelector("#orderInput") ;
 
 
 const tableEl = document.querySelector("#client-table");
 
-var clientList = [];
+
 
 const addBtn = document.querySelector('#add-btn');
 addBtn.addEventListener('click', (event)=>{
    onSubmit(event);
 })
+
+
 
 onSubmit = (event)=> {
 
@@ -30,38 +35,40 @@ createId = ()=> {
 
 }
 
-getValuesFromForm = (event)=> {
+calcPrice = (value)=> {
+    return parseFloat(parseInt(value) * 0.5)
+}
 
-    
+getValuesFromForm = (event)=> {
+   
     let user = {}
 
     if( nameInput.value.trim() == "" | orderInput.value.trim() == "") {
-        alert("istu no pode! favor não deixar campo em branco")
+        alert("istu no possible! favor não deixe campo em branco")
+        return
     }
+
     user = {
         uid: createId(),
         name: nameInput.value,
         order: orderInput.value,
-        totalPrice: parseFloat(parseInt(orderInput.value) * 0.5)
-    }
+        totalPrice: calcPrice(orderInput.value)
+    };
 
     nameInput.value = "";
-
     orderInput.value = "";
 
     clientList.push(user);
-
     return clientList;
-
 
 }
 
 
+
+
 renderClientTable = ()=> {
 
-
-
-
+    tableEl.innerHTML = "";
 
     clientList.map( item=> {
         let divEl = document.createElement('div');
@@ -80,7 +87,22 @@ renderClientTable = ()=> {
         tableEl.append(divEl);
 
     })
-
-
-
 }
+
+updateClientCounter = (list)=>{
+    let clientCounter = list.length
+    return clientCounter
+}
+
+
+const testClient = {
+    uid: createId(),
+    name: "Matheus Silva",
+    order: "10",
+    totalPrice: parseFloat( 10 * 0.5)
+}
+
+var clientList = [testClient];
+
+updateClientCounter(clientList)
+renderClientTable();
