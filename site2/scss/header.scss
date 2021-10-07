@@ -1,0 +1,32 @@
+@import"variables";
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    background-color: $primary-brown;
+
+    #header-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+
+        padding-top: 5rem;
+        padding-bottom: 11.25rem;
+    }
+}
+
+#dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #dashboard-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
