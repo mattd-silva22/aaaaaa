@@ -1,18 +1,13 @@
 
 
 
-
-
-
 const nameInput = document.querySelector("#nameInput");
 const orderInput = document.querySelector("#orderInput") ;
 
-
 const tableEl = document.querySelector("#client-table");
 
-
-
 const addBtn = document.querySelector('#add-btn');
+const clientCounterEl = document.querySelector("#pessoas-value")
 addBtn.addEventListener('click', (event)=>{
    onSubmit(event);
 })
@@ -25,6 +20,7 @@ onSubmit = (event)=> {
     clientData = getValuesFromForm(event);
     console.log(clientData);
     renderClientTable();
+    updateCounters();
 }
 
 createId = ()=> {
@@ -89,20 +85,58 @@ renderClientTable = ()=> {
     })
 }
 
+updateCounters = ()=> {
+    updateClientCounter(clientList)
+    updateOrderCounter(clientList)
+    updateMoneyCounter(clientList)
+}
+
 updateClientCounter = (list)=>{
     let clientCounter = list.length
-    return clientCounter
+    clientCounterEl.innerHTML = clientCounter
+    
+}
+
+updateOrderCounter = (list)=>{
+    let orderList = []
+
+    list.map( (item)=>{
+
+        orderList.push = parseInt(item.order);
+    })
+
+    console.log(orderList)
+    
+}
+
+updateMoneyCounter = (list)=>{
+    let MoneyList = []
+
+    list.map( (item)=>{
+
+        MoneyList.push = parseInt(item.totaPrice);
+    })
+
+    console.log(MoneyList)
+    
 }
 
 
 const testClient = {
     uid: createId(),
-    name: "Matheus Silva",
+    name: "Matheus Barretto",
     order: "10",
     totalPrice: parseFloat( 10 * 0.5)
 }
 
-var clientList = [testClient];
+const testClient2 = {
+    uid: createId(),
+    name: "João das Neves",
+    order: "7",
+    totalPrice: parseFloat( 7 * 0.5)
+}
 
-updateClientCounter(clientList)
+var clientList = [testClient, testClient2 ];
+
+updateCounters();
 renderClientTable();

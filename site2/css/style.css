@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #E5CF94;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+@media (max-width: 920px) {
+  html {
+    font-size: 89.75%;
+  }
+}
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #965A1B;
+}
+header #header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  padding-top: 5rem;
+  padding-bottom: 11.25rem;
+}
+
+#dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#dashboard #dashboard-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: -3rem;
+}
+@media (max-width: 1020px) {
+  #dashboard #dashboard-container {
+    font-size: 93.75%;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    justify-content: center;
+    margin-top: -5rem;
+  }
+}
+#dashboard #dashboard-container .dash-item {
+  background-color: #fff;
+  padding: 1.13rem 1.56rem;
+  width: 20.69rem;
+}
+@media (max-width: 1020px) {
+  #dashboard #dashboard-container .dash-item {
+    margin: 0;
+    gap: 1.5rem;
+    width: 25.69rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

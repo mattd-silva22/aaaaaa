@@ -1,0 +1,15 @@
+@import"variables.scss";
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    #mian-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+    }
+}

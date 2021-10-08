@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
     <header>
         <div id="header-container">
             <div id="logo-area">
-                <img src="" alt="">
+                <img src="./assets/Logo.svg" alt="">
             </div>
         </div>
     </header>
@@ -27,7 +28,7 @@
                     <img src="" alt="" class="dash-icon">
                 </div>
                 <div class="dash-item-value">
-                    <span>10</span>
+                    <span id="pessoas-value">10</span>
                 </div>
             </div>
 
@@ -38,7 +39,7 @@
                 </div>
 
                 <div class="dash-item-value">
-                    <span>100</span>
+                    <span id="order-value">100</span>
                 </div>
             </div>
 
@@ -49,7 +50,7 @@
                 </div>
 
                 <div class="dash-item-value">
-                    R$<span>25.00</span>
+                    R$<span id="money-value">25.00</span>
                 </div>
 
             </div>
@@ -57,7 +58,12 @@
     </div>
 
     <div id="modal">
-
+        <form action="">
+            <input type="text" name="clientName" id="nameInput">
+            <input type="text" name="clientOrder" id="orderInput">
+            <button type="submit" id="add-btn">add</button>
+        </form>
+        <button id="testBtn">test</button>
     </div>
 
     <main>
@@ -69,7 +75,7 @@
             <div id="client-table">
                 <div class="client-table-line">
                     <div>
-                        <h1>Matheus</h1>
+                        <h1>joao</h1>
                         <div class="client-value">
                             <p>Total paes: 2 </p>
                             <p>Total a pagar: 1,99 </p>
@@ -79,5 +85,8 @@
             </div>
         </div>
     </main>
+
+
+    <script src="./js/userConstructor.js"></script>
 </body>
 </html>
