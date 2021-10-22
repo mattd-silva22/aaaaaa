@@ -37,6 +37,10 @@ header #header-container {
 header #header-container #logo-area h1 {
   color: #fff;
 }
+header #header-container #logo-area h1:hover {
+  cursor: pointer;
+  color: #93c02f;
+}
 header #header-container #search-bar input {
   font-size: 1.6rem;
   padding: 0.4rem 0.8rem;
@@ -70,7 +74,6 @@ main #main-container {
   border-radius: 0.4rem;
   color: #fff;
   width: 100%;
-  border: 1px solid red;
   background-color: rgba(75, 81, 98, 0.85);
 }
 @media (max-width: 768px) {

@@ -1,15 +1,14 @@
 // selecionando elemetos DOM
+
 const moviesContainer = document.querySelector("#main-container");
-let backBtnEl = document.querySelector("#back-page");
-let nextBtnEl = document.querySelector("#next-page");
-let pageCounterEl = document.querySelector("#page-counter");
-let searchBtnEl = document.querySelector("#search-btn");
-let searchBarInputEl =  document.querySelector("#search-input");
-let logoEl = document.querySelector("#logo-el")
+const backBtnEl = document.querySelector("#back-page");
+const nextBtnEl = document.querySelector("#next-page");
+const pageCounterEl = document.querySelector("#page-counter");
+const searchBtnEl = document.querySelector("#search-btn");
+const searchBarInputEl =  document.querySelector("#search-input");
+const logoEl = document.querySelector("#logo-el")
 
-
-
-// set primiera pagina
+// set primeira pagina
 let defaultPage = 1;
 let pageNumber = defaultPage;
 
@@ -36,7 +35,7 @@ async function getDataFromAPI(query,isSearch) {
 
 let clearMovieList = ()=> {
     moviesContainer.innerHTML = "";
-}
+};
 
 let switchPage = (query) => {
     clearMovieList()
@@ -47,7 +46,10 @@ let switchPage = (query) => {
 
 let createMovieCard = (movie)=> {
 
+    let getReleaseDate = (date)=> {
 
+        return(date[0]+date[1]+date[2]+date[3])        
+    }
     let getPoster = ()=> {
         if(!movie.poster_path) {
             return "./assets/default-poster.png" 
@@ -71,7 +73,7 @@ let createMovieCard = (movie)=> {
                    
                     <p class="sinopse">${movie.overview}</p>
                     <div class="movie-info">
-                        <p> Release in: ${movie.release_date}</p>
+                        <p> Release in: ${getReleaseDate(movie.release_date)}</p>
                         <p>Original Language: ${movie.original_language}</p>
                         <p>Score: ${movie.vote_average}</p>
                     </div>
@@ -85,9 +87,9 @@ let createMovieCard = (movie)=> {
 
 };
 
-let searchMovie = (movieName)=> {
+let searchMovie = (query)=> {
     clearMovieList()
-    getDataFromAPI(movieName,true).then( movieList => {
+    getDataFromAPI(query,true).then( movieList => {
         movieList.results.map(movie => { createMovieCard(movie)})
     });
 };
@@ -100,24 +102,32 @@ let setDOMEvents = ()=> {
     };
 
     backBtnEl.addEventListener("click", ()=>{
-        if(pageNumber <= 1 ) {
+        pageNumber--        
+        
+        
+        pageCounterEl.innerHTML = ""
+        pageCounterEl.innerHTML = pageNumber
+        
+        switchPage(pageNumber);
+
+        if(pageNumber == 1 ) {
             backBtnEl.disabled = true
             return
         }
-        pageNumber--
-        pageCounterEl.innerHTML = ""
-        pageCounterEl.innerHTML = pageNumber
-        switchPage(pageNumber);
-        console.log(pageNumber);
+        
+        
     });
 
     nextBtnEl.addEventListener("click", ()=>{
+        pageNumber++
         if(pageNumber > 1) {
             backBtnEl.disabled = false
         }
-        pageNumber++
+        
+        
         pageCounterEl.innerHTML =""
         pageCounterEl.innerHTML = pageNumber
+        
         switchPage(pageNumber);
         
 
@@ -144,14 +154,8 @@ let setDOMEvents = ()=> {
 
 };
 
-
-
-
-
 // add eventos a DOM
-
 setDOMEvents()
-
 //primeira chamda api
 
 switchPage(defaultPage)
