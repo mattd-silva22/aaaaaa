@@ -3,6 +3,9 @@ const moviesContainer = document.querySelector("#main-container");
 let backBtnEl = document.querySelector("#back-page");
 let nextBtnEl = document.querySelector("#next-page");
 let pageCounterEl = document.querySelector("#page-counter");
+let searchBtnEl = document.querySelector("#search-btn");
+let searchBarInputEl =  document.querySelector("#search-input");
+let logoEl = document.querySelector("#logo-el")
 
 
 
@@ -13,8 +16,17 @@ let pageNumber = defaultPage;
 //funçoes 
 
 
-async function getDataFromAPI(page) {
-    let tempUrl =  `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${page}`
+async function getDataFromAPI(query,isSearch) {
+
+    if(isSearch) {
+        let tempUrl =  `https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=${query}`
+        let res = await fetch(tempUrl);
+        let data = await res.json();
+    
+        return data 
+    }
+
+    let tempUrl =  `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=${query}`
     //let url = `/movie-db/${page}`
     let res = await fetch(tempUrl);
     let data = await res.json();
@@ -22,9 +34,13 @@ async function getDataFromAPI(page) {
     return data
   };
 
-let switchPage = (page) => {
-    moviesContainer.innerHTML = ""
-    getDataFromAPI(page).then( movieList => {
+let clearMovieList = ()=> {
+    moviesContainer.innerHTML = "";
+}
+
+let switchPage = (query) => {
+    clearMovieList()
+    getDataFromAPI(query).then( movieList => {
         movieList.results.map(movie => { createMovieCard(movie)})
     })
 };
@@ -70,10 +86,13 @@ let createMovieCard = (movie)=> {
 };
 
 let searchMovie = (movieName)=> {
-
+    clearMovieList()
+    getDataFromAPI(movieName,true).then( movieList => {
+        movieList.results.map(movie => { createMovieCard(movie)})
+    });
 };
 
-let setPageSwitchEvents = ()=> {
+let setDOMEvents = ()=> {
     pageCounterEl.innerHTML = pageNumber;
 
     if(pageNumber <= 1 ) {
@@ -104,16 +123,35 @@ let setPageSwitchEvents = ()=> {
 
     });
 
+
+
+
+    searchBtnEl.addEventListener("click",()=>{
+        let query = searchBarInputEl.value.trim()
+        if(!query) {
+            alert("não deixar campo em branco")
+            return
+        }
+        searchBarInputEl.value = "";
+        searchMovie(query)
+    })
+
+
+    logoEl.addEventListener("click",()=>{
+        clearMovieList()
+        switchPage(defaultPage)
+    })
+
 };
+
+
 
 
 
 // add eventos a DOM
 
-setPageSwitchEvents()
+setDOMEvents()
 
 //primeira chamda api
 
-getDataFromAPI(defaultPage).then( movieList => {
-    movieList.results.map(movie => { createMovieCard(movie)})
-});
+switchPage(defaultPage)
