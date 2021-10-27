@@ -1,0 +1,64 @@
+@import"variables.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-image: url(".././assets/bg.jpg");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the */
+    height: 100vh;
+}
+
+
+button:hover {
+    cursor: pointer;
+    filter: brightness(0.8);
+}
+
+
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    #main-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        
+        width: 90%;
+        max-width: 1444px;
+    }
+
+    #contacts {
+        display: flex;
+        background-color: red;
+        
+        
+    }
+
+    #banner-area {
+        background-image: url(".././assets/sectionbg.jpg");
+        width: 15vw;
+        width: 90%;
+    }
+    
+    
+
+}
