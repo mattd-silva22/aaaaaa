@@ -1,0 +1,113 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-image: url(".././assets/bg.jpg");
+  background-color: #cccccc;
+  /* Used if the image is unavailable */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the */
+}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+main #main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6.5rem;
+  width: 90%;
+  max-width: 1444px;
+}
+main #contacts {
+  display: flex;
+  background-color: #E5E5E5;
+}
+main #form-area {
+  display: flex;
+  flex-direction: column;
+  padding: 8.6rem 6.6rem;
+}
+@media (max-width: 758px) {
+  main #form-area {
+    padding: 4.3rem 3.3rem;
+  }
+}
+main #form-area h1 {
+  font-size: 2.4rem;
+  font-family: "Scope One", serif;
+  margin-bottom: 4.5rem;
+  text-align: center;
+}
+main #form-area #form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+main #form-area #form input, main #form-area #form textarea {
+  padding: 1.1rem;
+  font-size: 1.6rem;
+  width: 37.5rem;
+  border: none;
+  border-radius: 1rem;
+}
+@media (max-width: 758px) {
+  main #form-area #form input, main #form-area #form textarea {
+    width: 18.5rem;
+  }
+}
+main #form-area #form input::placeholder, main #form-area #form textarea::placeholder {
+  font-family: "Roboto", sans-serif;
+}
+main #form-area #form textarea {
+  resize: none;
+  height: 12.6rem;
+}
+main #form-area #form button {
+  font-size: 1.6rem;
+  padding: 0.7rem 1.6rem;
+  border: none;
+  border-radius: 1rem;
+}
+main #banner-area {
+  background-image: url(".././assets/sectionbg.jpg");
+  background-color: #cccccc;
+  /* Used if the image is unavailable */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
+  /* Resize the background image to cover the */
+  display: flex;
+  align-items: flex-end;
+  padding: 0.5rem 3.4rem;
+}
+@media (max-width: 1080px) {
+  main #banner-area {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
